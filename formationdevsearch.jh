@@ -1,0 +1,60 @@
+
+/**
+ * Like folders for documents
+ * @author Christian Hoffmann
+ */
+entity DocumentCategory {
+	name String required unique,
+    description String
+}
+
+entity DocumentCategory1 {
+	name String required unique,
+    description String
+}
+
+entity Document1 {
+	name String required unique,
+}
+
+
+/**
+ * All documents and links
+ * @author Christian Hoffmann
+ */
+entity Document {
+	name String required unique,
+    description String,
+    url String unique,
+    //documentCategory DocumentCategory,
+    //documentType DocumentType,
+    duration Integer,
+    CreationDate Instant, 
+    userCreation String,
+    DownloadDate Instant
+    userDownload String
+}
+
+/**
+ * 6 types of documents : Fondamental, Outil, Quizz, Podcast, Vidéo, Article
+ * @author Christian Hoffmann
+ */
+entity DocumentType {
+	name String
+}
+
+relationship ManyToOne {
+	Document{documentCategory(name) required} to DocumentCategory,
+    Document{documentType(name) required} to DocumentType,	
+}
+
+relationship ManyToMany {
+	Document1{documentCategories(name) required} to DocumentCategory1{documents(name)}
+}
+
+
+paginate DocumentCategory1 with pagination
+dto DocumentCategory1 with mapstruct
+service DocumentCategory1 with serviceClass
+search DocumentCategory1, DocumentCategory, Document, DocumentType with elasticsearch
+filter DocumentCategory1

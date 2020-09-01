@@ -7,6 +7,11 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "documentCategory": "Document Category",
+        "documentCategory1": "Document Category 1",
+        "document1": "Document 1",
+        "document": "Document",
+        "documentType": "Document Type",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
