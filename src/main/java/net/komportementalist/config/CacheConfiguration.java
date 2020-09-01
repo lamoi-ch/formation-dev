@@ -47,6 +47,13 @@ public class CacheConfiguration {
             createCache(cm, net.komportementalist.domain.User.class.getName());
             createCache(cm, net.komportementalist.domain.Authority.class.getName());
             createCache(cm, net.komportementalist.domain.User.class.getName() + ".authorities");
+            createCache(cm, net.komportementalist.domain.DocumentCategory.class.getName());
+            createCache(cm, net.komportementalist.domain.DocumentCategory1.class.getName());
+            createCache(cm, net.komportementalist.domain.DocumentCategory1.class.getName() + ".documents");
+            createCache(cm, net.komportementalist.domain.Document1.class.getName());
+            createCache(cm, net.komportementalist.domain.Document1.class.getName() + ".documentCategories");
+            createCache(cm, net.komportementalist.domain.Document.class.getName());
+            createCache(cm, net.komportementalist.domain.DocumentType.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

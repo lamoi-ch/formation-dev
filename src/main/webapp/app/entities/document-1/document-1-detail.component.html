@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="document1">
+            <h2><span jhiTranslate="komportementalistApp.document1.detail.title">Document 1</span> {{ document1.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="komportementalistApp.document1.name">Name</span></dt>
+                <dd>
+                    <span>{{ document1.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document1.documentCategories">Document Categories</span></dt>
+                <dd>
+                    <span *ngFor="let documentCategories of document1.documentCategories; let last = last">
+                        <a [routerLink]="['/document-category-1', documentCategories?.id, 'view']">{{ documentCategories.name }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/document-1', document1.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

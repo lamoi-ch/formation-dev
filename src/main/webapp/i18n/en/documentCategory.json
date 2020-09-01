@@ -1,0 +1,24 @@
+{
+  "komportementalistApp": {
+    "documentCategory": {
+      "home": {
+        "title": "Document Categories",
+        "createLabel": "Create a new Document Category",
+        "createOrEditLabel": "Create or edit a Document Category",
+        "search": "Search for Document Category",
+        "notFound": "No Document Categories found"
+      },
+      "created": "A new Document Category is created with identifier {{ param }}",
+      "updated": "A Document Category is updated with identifier {{ param }}",
+      "deleted": "A Document Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Document Category {{ id }}?"
+      },
+      "detail": {
+        "title": "Document Category"
+      },
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}
