@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="komportementalistApp.formationProgram.home.title">Formation Programs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-formation-program" [routerLink]="['/formation-program/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="komportementalistApp.formationProgram.home.createLabel">
+            Create a new Formation Program
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="formationPrograms?.length === 0">
+        <span jhiTranslate="komportementalistApp.formationProgram.home.notFound">No formationPrograms found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="formationPrograms && formationPrograms.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationProgram.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationProgram.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationProgram.userCategories">User Categories</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationProgram.programType">Program Type</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationProgram.profileVariant">Profile Variant</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationProgram.formationModules">Formation Modules</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let formationProgram of formationPrograms ;trackBy: trackId">
+                    <td><a [routerLink]="['/formation-program', formationProgram.id, 'view']">{{ formationProgram.id }}</a></td>
+                    <td>{{ formationProgram.name }}</td>
+                    <td>{{ formationProgram.description }}</td>
+                    <td>
+                        <div *ngIf="formationProgram.userCategories">
+                            <a [routerLink]="['/user-category', formationProgram.userCategories?.id, 'view']" >{{ formationProgram.userCategories?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="formationProgram.programType">
+                            <a [routerLink]="['/program-type', formationProgram.programType?.id, 'view']" >{{ formationProgram.programType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="formationProgram.profileVariant">
+                            <a [routerLink]="['/profile-variant', formationProgram.profileVariant?.id, 'view']" >{{ formationProgram.profileVariant?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <span *ngFor="let formationModules of formationProgram.formationModules; let last = last">
+                            <a class="form-control-static" [routerLink]="['/formation-module', formationModules?.id, 'view']">{{ formationModules.name }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/formation-program', formationProgram.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/formation-program', formationProgram.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(formationProgram)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

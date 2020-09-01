@@ -1,0 +1,32 @@
+{
+  "komportementalistApp": {
+    "document": {
+      "home": {
+        "title": "Documents",
+        "createLabel": "Créer un nouveau Document",
+        "createOrEditLabel": "Créer ou éditer un Document",
+        "notFound": "Aucun Document trouvé"
+      },
+      "created": "Un nouveau Document a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Document avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Document avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Document {{ id }} ?"
+      },
+      "detail": {
+        "title": "Document"
+      },
+      "name": "Name",
+      "description": "Description",
+      "url": "Url",
+      "duration": "Duration",
+      "creationDate": "Creation Date",
+      "userCreation": "User Creation",
+      "downloadDate": "Download Date",
+      "userDownload": "User Download",
+      "documentCategory": "Document Category",
+      "documentType": "Document Type",
+      "formationTypes": "Formation Types"
+    }
+  }
+}

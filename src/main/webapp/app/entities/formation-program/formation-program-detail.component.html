@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="formationProgram">
+            <h2><span jhiTranslate="komportementalistApp.formationProgram.detail.title">Formation Program</span> {{ formationProgram.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="komportementalistApp.formationProgram.name">Name</span></dt>
+                <dd>
+                    <span>{{ formationProgram.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.formationProgram.description">Description</span></dt>
+                <dd>
+                    <span>{{ formationProgram.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.formationProgram.userCategories">User Categories</span></dt>
+                <dd>
+                    <div *ngIf="formationProgram.userCategories">
+                        <a [routerLink]="['/user-category', formationProgram.userCategories?.id, 'view']">{{ formationProgram.userCategories?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.formationProgram.programType">Program Type</span></dt>
+                <dd>
+                    <div *ngIf="formationProgram.programType">
+                        <a [routerLink]="['/program-type', formationProgram.programType?.id, 'view']">{{ formationProgram.programType?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.formationProgram.profileVariant">Profile Variant</span></dt>
+                <dd>
+                    <div *ngIf="formationProgram.profileVariant">
+                        <a [routerLink]="['/profile-variant', formationProgram.profileVariant?.id, 'view']">{{ formationProgram.profileVariant?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.formationProgram.formationModules">Formation Modules</span></dt>
+                <dd>
+                    <span *ngFor="let formationModules of formationProgram.formationModules; let last = last">
+                        <a [routerLink]="['/formation-module', formationModules?.id, 'view']">{{ formationModules.name }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/formation-program', formationProgram.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

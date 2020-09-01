@@ -47,6 +47,21 @@ public class CacheConfiguration {
             createCache(cm, net.komportementalist.domain.User.class.getName());
             createCache(cm, net.komportementalist.domain.Authority.class.getName());
             createCache(cm, net.komportementalist.domain.User.class.getName() + ".authorities");
+            createCache(cm, net.komportementalist.domain.DocumentCategory.class.getName());
+            createCache(cm, net.komportementalist.domain.Document.class.getName());
+            createCache(cm, net.komportementalist.domain.Document.class.getName() + ".formationTypes");
+            createCache(cm, net.komportementalist.domain.DocumentType.class.getName());
+            createCache(cm, net.komportementalist.domain.FormationType.class.getName());
+            createCache(cm, net.komportementalist.domain.FormationType.class.getName() + ".documents");
+            createCache(cm, net.komportementalist.domain.FormationType.class.getName() + ".formationModules");
+            createCache(cm, net.komportementalist.domain.FormationModule.class.getName());
+            createCache(cm, net.komportementalist.domain.FormationModule.class.getName() + ".formationTypes");
+            createCache(cm, net.komportementalist.domain.FormationModule.class.getName() + ".formationPrograms");
+            createCache(cm, net.komportementalist.domain.ProgramType.class.getName());
+            createCache(cm, net.komportementalist.domain.FormationProgram.class.getName());
+            createCache(cm, net.komportementalist.domain.FormationProgram.class.getName() + ".formationModules");
+            createCache(cm, net.komportementalist.domain.ProfileVariant.class.getName());
+            createCache(cm, net.komportementalist.domain.UserCategory.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

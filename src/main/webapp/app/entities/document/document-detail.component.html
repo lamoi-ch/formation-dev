@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="document">
+            <h2><span jhiTranslate="komportementalistApp.document.detail.title">Document</span> {{ document.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="komportementalistApp.document.name">Name</span></dt>
+                <dd>
+                    <span>{{ document.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document.description">Description</span></dt>
+                <dd>
+                    <span>{{ document.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document.url">Url</span></dt>
+                <dd>
+                    <span>{{ document.url }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document.duration">Duration</span></dt>
+                <dd>
+                    <span>{{ document.duration }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{ document.creationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document.userCreation">User Creation</span></dt>
+                <dd>
+                    <span>{{ document.userCreation }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document.downloadDate">Download Date</span></dt>
+                <dd>
+                    <span>{{ document.downloadDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document.userDownload">User Download</span></dt>
+                <dd>
+                    <span>{{ document.userDownload }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document.documentCategory">Document Category</span></dt>
+                <dd>
+                    <div *ngIf="document.documentCategory">
+                        <a [routerLink]="['/document-category', document.documentCategory?.id, 'view']">{{ document.documentCategory?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.document.documentType">Document Type</span></dt>
+                <dd>
+                    <div *ngIf="document.documentType">
+                        <a [routerLink]="['/document-type', document.documentType?.id, 'view']">{{ document.documentType?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/document', document.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

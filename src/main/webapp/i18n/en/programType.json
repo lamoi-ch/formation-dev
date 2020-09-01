@@ -1,0 +1,22 @@
+{
+  "komportementalistApp": {
+    "programType": {
+      "home": {
+        "title": "Program Types",
+        "createLabel": "Create a new Program Type",
+        "createOrEditLabel": "Create or edit a Program Type",
+        "notFound": "No Program Types found"
+      },
+      "created": "A new Program Type is created with identifier {{ param }}",
+      "updated": "A Program Type is updated with identifier {{ param }}",
+      "deleted": "A Program Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Program Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Program Type"
+      },
+      "name": "Name"
+    }
+  }
+}

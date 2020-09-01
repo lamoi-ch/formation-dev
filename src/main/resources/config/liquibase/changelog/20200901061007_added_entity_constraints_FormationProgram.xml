@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity FormationProgram.
+    -->
+    <changeSet id="20200901061007-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_categories_id"
+                                 baseTableName="formation_program"
+                                 constraintName="fk_formation_program_user_categories_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_category"/>
+
+        <addForeignKeyConstraint baseColumnNames="program_type_id"
+                                 baseTableName="formation_program"
+                                 constraintName="fk_formation_program_program_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="program_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="profile_variant_id"
+                                 baseTableName="formation_program"
+                                 constraintName="fk_formation_program_profile_variant_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="profile_variant"/>
+
+        <addForeignKeyConstraint baseColumnNames="formation_program_id"
+                                 baseTableName="formation_program_formation_modules"
+                                 constraintName="fk_formation_program_formation_modules_formation_program_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="formation_program"/>
+
+        <addForeignKeyConstraint baseColumnNames="formation_modules_id"
+                                 baseTableName="formation_program_formation_modules"
+                                 constraintName="fk_formation_program_formation_modules_formation_modules_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="formation_module"/>
+        
+    </changeSet>
+</databaseChangeLog>

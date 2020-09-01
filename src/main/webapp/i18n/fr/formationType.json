@@ -1,0 +1,26 @@
+{
+  "komportementalistApp": {
+    "formationType": {
+      "home": {
+        "title": "FormationTypes",
+        "createLabel": "Créer un nouveau Formation Type",
+        "createOrEditLabel": "Créer ou éditer un Formation Type",
+        "notFound": "Aucun Formation Type trouvé"
+      },
+      "created": "Un nouveau Formation Type a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Formation Type avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Formation Type avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Formation Type {{ id }} ?"
+      },
+      "detail": {
+        "title": "Formation Type"
+      },
+      "description": "Description",
+      "duration": "Duration",
+      "documentType": "Document Type",
+      "documents": "Documents",
+      "formationModules": "Formation Modules"
+    }
+  }
+}

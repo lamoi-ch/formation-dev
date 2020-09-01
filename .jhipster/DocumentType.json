@@ -1,0 +1,22 @@
+{
+  "name": "DocumentType",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200901060607",
+  "javadoc": "6 types of documents : Fondamental, Outil, Quizz, Podcast, Vidéo, Article",
+  "entityTableName": "document_type",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

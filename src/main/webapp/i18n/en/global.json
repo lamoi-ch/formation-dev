@@ -7,6 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "documentCategory": "Document Category",
+        "document": "Document",
+        "documentType": "Document Type",
+        "formationType": "Formation Type",
+        "formationModule": "Formation Module",
+        "programType": "Program Type",
+        "formationProgram": "Formation Program",
+        "profileVariant": "Profile Variant",
+        "userCategory": "User Category",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

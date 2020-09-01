@@ -1,0 +1,27 @@
+{
+  "komportementalistApp": {
+    "formationProgram": {
+      "home": {
+        "title": "FormationPrograms",
+        "createLabel": "Créer un nouveau Formation Program",
+        "createOrEditLabel": "Créer ou éditer un Formation Program",
+        "notFound": "Aucun Formation Program trouvé"
+      },
+      "created": "Un nouveau Formation Program a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Formation Program avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Formation Program avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Formation Program {{ id }} ?"
+      },
+      "detail": {
+        "title": "Formation Program"
+      },
+      "name": "Name",
+      "description": "Description",
+      "userCategories": "User Categories",
+      "programType": "Program Type",
+      "profileVariant": "Profile Variant",
+      "formationModules": "Formation Modules"
+    }
+  }
+}
