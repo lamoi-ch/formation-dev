@@ -1,0 +1,22 @@
+{
+  "komportementalistApp": {
+    "profileVariant": {
+      "home": {
+        "title": "Profile Variants",
+        "createLabel": "Create a new Profile Variant",
+        "createOrEditLabel": "Create or edit a Profile Variant",
+        "notFound": "No Profile Variants found"
+      },
+      "created": "A new Profile Variant is created with identifier {{ param }}",
+      "updated": "A Profile Variant is updated with identifier {{ param }}",
+      "deleted": "A Profile Variant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Profile Variant {{ id }}?"
+      },
+      "detail": {
+        "title": "Profile Variant"
+      },
+      "name": "Name"
+    }
+  }
+}

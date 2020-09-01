@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-formation-program-heading" jhiTranslate="komportementalistApp.formationProgram.home.createOrEditLabel">Create or edit a Formation Program</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="komportementalistApp.formationProgram.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="komportementalistApp.formationProgram.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="komportementalistApp.formationProgram.userCategories" for="field_userCategories">User Categories</label>
+                    <select class="form-control" id="field_userCategories" name="userCategories" formControlName="userCategories">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userCategoryOption.id === editForm.get('userCategories')!.value?.id ? editForm.get('userCategories')!.value : userCategoryOption" *ngFor="let userCategoryOption of usercategories; trackBy: trackById">{{ userCategoryOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="komportementalistApp.formationProgram.programType" for="field_programType">Program Type</label>
+                    <select class="form-control" id="field_programType" name="programType" formControlName="programType">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="programTypeOption.id === editForm.get('programType')!.value?.id ? editForm.get('programType')!.value : programTypeOption" *ngFor="let programTypeOption of programtypes; trackBy: trackById">{{ programTypeOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="komportementalistApp.formationProgram.profileVariant" for="field_profileVariant">Profile Variant</label>
+                    <select class="form-control" id="field_profileVariant" name="profileVariant" formControlName="profileVariant">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="profileVariantOption.id === editForm.get('profileVariant')!.value?.id ? editForm.get('profileVariant')!.value : profileVariantOption" *ngFor="let profileVariantOption of profilevariants; trackBy: trackById">{{ profileVariantOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="komportementalistApp.formationProgram.formationModules" for="field_formationModules">Formation Modules</label>
+                    <select class="form-control" id="field_formationModules" multiple name="formationModules" formControlName="formationModules">
+                        <option [ngValue]="getSelected(editForm.get('formationModules')!.value, formationModuleOption)" *ngFor="let formationModuleOption of formationmodules; trackBy: trackById">{{ formationModuleOption.name }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

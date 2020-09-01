@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="komportementalistApp.formationType.home.title">Formation Types</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-formation-type" [routerLink]="['/formation-type/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="komportementalistApp.formationType.home.createLabel">
+            Create a new Formation Type
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="formationTypes?.length === 0">
+        <span jhiTranslate="komportementalistApp.formationType.home.notFound">No formationTypes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="formationTypes && formationTypes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationType.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationType.duration">Duration</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationType.documentType">Document Type</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.formationType.documents">Documents</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let formationType of formationTypes ;trackBy: trackId">
+                    <td><a [routerLink]="['/formation-type', formationType.id, 'view']">{{ formationType.id }}</a></td>
+                    <td>{{ formationType.description }}</td>
+                    <td>{{ formationType.duration }}</td>
+                    <td>
+                        <div *ngIf="formationType.documentType">
+                            <a [routerLink]="['/document-type', formationType.documentType?.id, 'view']" >{{ formationType.documentType?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <span *ngFor="let documents of formationType.documents; let last = last">
+                            <a class="form-control-static" [routerLink]="['/document', documents?.id, 'view']">{{ documents.name }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/formation-type', formationType.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/formation-type', formationType.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(formationType)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

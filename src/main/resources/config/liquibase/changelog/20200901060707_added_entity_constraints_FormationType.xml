@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity FormationType.
+    -->
+    <changeSet id="20200901060707-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="document_type_id"
+                                 baseTableName="formation_type"
+                                 constraintName="fk_formation_type_document_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="formation_type_id"
+                                 baseTableName="formation_type_documents"
+                                 constraintName="fk_formation_type_documents_formation_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="formation_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="documents_id"
+                                 baseTableName="formation_type_documents"
+                                 constraintName="fk_formation_type_documents_documents_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="document"/>
+        
+    </changeSet>
+</databaseChangeLog>

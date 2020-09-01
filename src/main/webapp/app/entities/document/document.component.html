@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="komportementalistApp.document.home.title">Documents</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-document" [routerLink]="['/document/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="komportementalistApp.document.home.createLabel">
+            Create a new Document
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="documents?.length === 0">
+        <span jhiTranslate="komportementalistApp.document.home.notFound">No documents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="documents && documents.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.description">Description</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.url">Url</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.duration">Duration</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.creationDate">Creation Date</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.userCreation">User Creation</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.downloadDate">Download Date</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.userDownload">User Download</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.documentCategory">Document Category</span></th>
+                    <th scope="col" ><span jhiTranslate="komportementalistApp.document.documentType">Document Type</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let document of documents ;trackBy: trackId">
+                    <td><a [routerLink]="['/document', document.id, 'view']">{{ document.id }}</a></td>
+                    <td>{{ document.name }}</td>
+                    <td>{{ document.description }}</td>
+                    <td>{{ document.url }}</td>
+                    <td>{{ document.duration }}</td>
+                    <td>{{ document.creationDate | date:'medium' }}</td>
+                    <td>{{ document.userCreation }}</td>
+                    <td>{{ document.downloadDate | date:'medium' }}</td>
+                    <td>{{ document.userDownload }}</td>
+                    <td>
+                        <div *ngIf="document.documentCategory">
+                            <a [routerLink]="['/document-category', document.documentCategory?.id, 'view']" >{{ document.documentCategory?.name }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="document.documentType">
+                            <a [routerLink]="['/document-type', document.documentType?.id, 'view']" >{{ document.documentType?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/document', document.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/document', document.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(document)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+
+/**
+ * Like folders for documents
+ */
+entity DocumentCategory {
+	name String,
+    description String
+}
+
+/**
+ * All documents and links
+ */
+entity Document {
+	name String,
+    description String,
+    url String,
+    //documentCategory DocumentCategory,
+    //documentType DocumentType,
+    duration Integer,
+    creationDate Instant, 
+    userCreation String,
+    downloadDate Instant
+    userDownload String
+}
+
+/**
+ * 6 types of documents : Fondamental, Outil, Quizz, Podcast, Vidéo, Article
+ */
+entity DocumentType {
+	name String
+}
+
+/**
+ * A part of a FormationModule from a sort of DocumentType
+ */
+entity FormationType {
+	//DocumentType,
+    description String,
+    duration Integer,
+    //Documents
+}
+
+/**
+ * A group of FormationTypes
+ */
+entity FormationModule {
+	code String,
+    name String,
+    description String
+    //FormationTypes
+}
+
+/**
+ * Integral ou Personnal Formation Program
+ */
+entity ProgramType {
+	name String
+}
+
+/**
+ * Groups of FormationModules for ProfilVariants and UserCategory
+ */
+entity FormationProgram {
+	//ProgramType,
+    name String,
+    description String,
+    //ProfilVariant
+    //UserCategory
+    //FormationModules
+}
+
+//Existant
+entity ProfileVariant {
+	name String
+}
+
+/**
+ * 6 types of documents : Fondamental, Outil, Quizz, Podcast, Vidéo, Article
+ */
+entity UserCategory {
+	name String
+}
+
+
+relationship ManyToOne {
+	Document{documentCategory(name)} to DocumentCategory,
+    Document{documentType(name)} to DocumentType,
+    FormationProgram{userCategories(name)} to UserCategory,
+    FormationType{documentType(name)} to DocumentType,
+    FormationProgram{programType(name)} to ProgramType,
+    FormationProgram{profileVariant(name)} to ProfileVariant
+}
+
+relationship ManyToMany {
+	FormationType{documents(name)} to Document{formationTypes(name)},
+    FormationModule{formationTypes(name)} to FormationType{formationModules(name)},
+    FormationProgram{formationModules(name)} to FormationModule{FormationPrograms(name)}
+}

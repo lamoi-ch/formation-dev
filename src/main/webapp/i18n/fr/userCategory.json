@@ -1,0 +1,22 @@
+{
+  "komportementalistApp": {
+    "userCategory": {
+      "home": {
+        "title": "UserCategories",
+        "createLabel": "Créer un nouveau User Category",
+        "createOrEditLabel": "Créer ou éditer un User Category",
+        "notFound": "Aucun User Category trouvé"
+      },
+      "created": "Un nouveau User Category a été créé avec l'identifiant {{ param }}",
+      "updated": "Le User Category avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le User Category avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le User Category {{ id }} ?"
+      },
+      "detail": {
+        "title": "User Category"
+      },
+      "name": "Name"
+    }
+  }
+}

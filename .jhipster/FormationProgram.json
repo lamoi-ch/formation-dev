@@ -1,0 +1,56 @@
+{
+  "name": "FormationProgram",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userCategory",
+      "otherEntityRelationshipName": "formationProgram",
+      "relationshipName": "userCategories",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "programType",
+      "otherEntityRelationshipName": "formationProgram",
+      "relationshipName": "programType",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "profileVariant",
+      "otherEntityRelationshipName": "formationProgram",
+      "relationshipName": "profileVariant",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "formationModule",
+      "otherEntityRelationshipName": "formationPrograms",
+      "relationshipName": "formationModules",
+      "otherEntityField": "name",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200901061007",
+  "javadoc": "Groups of FormationModules for ProfilVariants and UserCategory",
+  "entityTableName": "formation_program",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

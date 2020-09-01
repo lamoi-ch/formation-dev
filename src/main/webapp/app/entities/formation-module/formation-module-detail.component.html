@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="formationModule">
+            <h2><span jhiTranslate="komportementalistApp.formationModule.detail.title">Formation Module</span> {{ formationModule.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="komportementalistApp.formationModule.code">Code</span></dt>
+                <dd>
+                    <span>{{ formationModule.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.formationModule.name">Name</span></dt>
+                <dd>
+                    <span>{{ formationModule.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.formationModule.description">Description</span></dt>
+                <dd>
+                    <span>{{ formationModule.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.formationModule.formationTypes">Formation Types</span></dt>
+                <dd>
+                    <span *ngFor="let formationTypes of formationModule.formationTypes; let last = last">
+                        <a [routerLink]="['/formation-type', formationTypes?.id, 'view']">{{ formationTypes.name }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/formation-module', formationModule.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
