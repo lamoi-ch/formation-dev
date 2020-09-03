@@ -1,11 +1,10 @@
-import { IUserCategory } from 'app/shared/model/user-category.model';
-
 export interface IUserExtra {
   id?: number;
   name?: string;
-  userCategory?: IUserCategory;
+  userCategoryName?: string;
+  userCategoryId?: number;
 }
 
 export class UserExtra implements IUserExtra {
-  constructor(public id?: number, public name?: string, public userCategory?: IUserCategory) {}
+  constructor(public id?: number, public name?: string, public userCategoryName?: string, public userCategoryId?: number) {}
 }

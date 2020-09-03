@@ -19,9 +19,9 @@
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="komportementalistApp.userExtra.userCategory" for="field_userCategory">User Category</label>
-                    <select class="form-control" id="field_userCategory" name="userCategory" formControlName="userCategory">
+                    <select class="form-control" id="field_userCategory" name="userCategory" formControlName="userCategoryId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="userCategoryOption.id === editForm.get('userCategory')!.value?.id ? editForm.get('userCategory')!.value : userCategoryOption" *ngFor="let userCategoryOption of usercategories; trackBy: trackById">{{ userCategoryOption.name }}</option>
+                        <option [ngValue]="userCategoryOption.id" *ngFor="let userCategoryOption of usercategories; trackBy: trackById">{{ userCategoryOption.name }}</option>
                     </select>
                 </div>
             </div>

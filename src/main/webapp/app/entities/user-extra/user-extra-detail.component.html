@@ -14,8 +14,8 @@
                 </dd>
                 <dt><span jhiTranslate="komportementalistApp.userExtra.userCategory">User Category</span></dt>
                 <dd>
-                    <div *ngIf="userExtra.userCategory">
-                        <a [routerLink]="['/user-category', userExtra.userCategory?.id, 'view']">{{ userExtra.userCategory?.name }}</a>
+                    <div *ngIf="userExtra.userCategoryId">
+                        <a [routerLink]="['/user-category', userExtra.userCategoryId, 'view']">{{ userExtra.userCategoryName }}</a>
                     </div>
                 </dd>
             </dl>
