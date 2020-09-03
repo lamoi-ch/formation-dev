@@ -3,6 +3,9 @@ package net.komportementalist.web.rest;
 import net.komportementalist.KomportementalistApp;
 import net.komportementalist.domain.UserExtra;
 import net.komportementalist.repository.UserExtraRepository;
+import net.komportementalist.service.UserExtraService;
+import net.komportementalist.service.dto.UserExtraDTO;
+import net.komportementalist.service.mapper.UserExtraMapper;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,6 +37,12 @@ public class UserExtraResourceIT {
 
     @Autowired
     private UserExtraRepository userExtraRepository;
+
+    @Autowired
+    private UserExtraMapper userExtraMapper;
+
+    @Autowired
+    private UserExtraService userExtraService;
 
     @Autowired
     private EntityManager em;
@@ -76,9 +85,10 @@ public class UserExtraResourceIT {
     public void createUserExtra() throws Exception {
         int databaseSizeBeforeCreate = userExtraRepository.findAll().size();
         // Create the UserExtra
+        UserExtraDTO userExtraDTO = userExtraMapper.toDto(userExtra);
         restUserExtraMockMvc.perform(post("/api/user-extras")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(userExtra)))
+            .content(TestUtil.convertObjectToJsonBytes(userExtraDTO)))
             .andExpect(status().isCreated());
 
         // Validate the UserExtra in the database
@@ -95,11 +105,12 @@ public class UserExtraResourceIT {
 
         // Create the UserExtra with an existing ID
         userExtra.setId(1L);
+        UserExtraDTO userExtraDTO = userExtraMapper.toDto(userExtra);
 
         // An entity with an existing ID cannot be created, so this API call must fail
         restUserExtraMockMvc.perform(post("/api/user-extras")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(userExtra)))
+            .content(TestUtil.convertObjectToJsonBytes(userExtraDTO)))
             .andExpect(status().isBadRequest());
 
         // Validate the UserExtra in the database
@@ -157,10 +168,11 @@ public class UserExtraResourceIT {
         em.detach(updatedUserExtra);
         updatedUserExtra
             .name(UPDATED_NAME);
+        UserExtraDTO userExtraDTO = userExtraMapper.toDto(updatedUserExtra);
 
         restUserExtraMockMvc.perform(put("/api/user-extras")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(updatedUserExtra)))
+            .content(TestUtil.convertObjectToJsonBytes(userExtraDTO)))
             .andExpect(status().isOk());
 
         // Validate the UserExtra in the database
@@ -175,10 +187,13 @@ public class UserExtraResourceIT {
     public void updateNonExistingUserExtra() throws Exception {
         int databaseSizeBeforeUpdate = userExtraRepository.findAll().size();
 
+        // Create the UserExtra
+        UserExtraDTO userExtraDTO = userExtraMapper.toDto(userExtra);
+
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restUserExtraMockMvc.perform(put("/api/user-extras")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(userExtra)))
+            .content(TestUtil.convertObjectToJsonBytes(userExtraDTO)))
             .andExpect(status().isBadRequest());
 
         // Validate the UserExtra in the database

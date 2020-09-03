@@ -33,8 +33,8 @@
                     <td><a [routerLink]="['/user-extra', userExtra.id, 'view']">{{ userExtra.id }}</a></td>
                     <td>{{ userExtra.name }}</td>
                     <td>
-                        <div *ngIf="userExtra.userCategory">
-                            <a [routerLink]="['/user-category', userExtra.userCategory?.id, 'view']" >{{ userExtra.userCategory?.name }}</a>
+                        <div *ngIf="userExtra.userCategoryId">
+                            <a [routerLink]="['/user-category', userExtra.userCategoryId , 'view']" >{{ userExtra.userCategoryName }}</a>
                         </div>
                     </td>
                     <td class="text-right">

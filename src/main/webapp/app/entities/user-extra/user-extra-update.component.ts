@@ -21,7 +21,7 @@ export class UserExtraUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     name: [],
-    userCategory: [],
+    userCategoryId: [],
   });
 
   constructor(
@@ -43,7 +43,7 @@ export class UserExtraUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: userExtra.id,
       name: userExtra.name,
-      userCategory: userExtra.userCategory,
+      userCategoryId: userExtra.userCategoryId,
     });
   }
 
@@ -66,7 +66,7 @@ export class UserExtraUpdateComponent implements OnInit {
       ...new UserExtra(),
       id: this.editForm.get(['id'])!.value,
       name: this.editForm.get(['name'])!.value,
-      userCategory: this.editForm.get(['userCategory'])!.value,
+      userCategoryId: this.editForm.get(['userCategoryId'])!.value,
     };
   }
 
