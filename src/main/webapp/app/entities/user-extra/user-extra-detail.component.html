@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userExtra">
+            <h2><span jhiTranslate="komportementalistApp.userExtra.detail.title">User Extra</span> {{ userExtra.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="komportementalistApp.userExtra.name">Name</span></dt>
+                <dd>
+                    <span>{{ userExtra.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="komportementalistApp.userExtra.userCategory">User Category</span></dt>
+                <dd>
+                    <div *ngIf="userExtra.userCategory">
+                        <a [routerLink]="['/user-category', userExtra.userCategory?.id, 'view']">{{ userExtra.userCategory?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-extra', userExtra.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
