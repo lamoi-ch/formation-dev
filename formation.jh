@@ -81,6 +81,10 @@ entity UserCategory {
 	name String
 }
 
+entity UserExtra {
+	name String
+}
+
 
 relationship ManyToOne {
 	Document{documentCategory(name)} to DocumentCategory,
@@ -89,6 +93,7 @@ relationship ManyToOne {
     FormationType{documentType(name)} to DocumentType,
     FormationProgram{programType(name)} to ProgramType,
     FormationProgram{profileVariant(name)} to ProfileVariant
+    UserExtra{userCategory(name)} to UserCategory
 }
 
 relationship ManyToMany {
