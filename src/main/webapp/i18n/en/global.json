@@ -16,6 +16,7 @@
         "formationProgram": "Formation Program",
         "profileVariant": "Profile Variant",
         "userCategory": "User Category",
+        "userExtra": "User Extra",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

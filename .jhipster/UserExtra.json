@@ -1,0 +1,29 @@
+{
+  "name": "UserExtra",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userCategory",
+      "otherEntityRelationshipName": "userExtra",
+      "relationshipName": "userCategory",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20200903065547",
+  "entityTableName": "user_extra",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

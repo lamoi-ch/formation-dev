@@ -62,6 +62,7 @@ public class CacheConfiguration {
             createCache(cm, net.komportementalist.domain.FormationProgram.class.getName() + ".formationModules");
             createCache(cm, net.komportementalist.domain.ProfileVariant.class.getName());
             createCache(cm, net.komportementalist.domain.UserCategory.class.getName());
+            createCache(cm, net.komportementalist.domain.UserExtra.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

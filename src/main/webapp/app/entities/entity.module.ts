@@ -40,6 +40,11 @@ import { RouterModule } from '@angular/router';
         path: 'user-category',
         loadChildren: () => import('./user-category/user-category.module').then(m => m.KomportementalistUserCategoryModule),
       },
+      ,
+      {
+        path: 'user-extra',
+        loadChildren: () => import('./user-extra/user-extra.module').then(m => m.KomportementalistUserExtraModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],
